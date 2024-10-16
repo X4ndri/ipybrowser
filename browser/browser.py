@@ -73,7 +73,6 @@ class Browser:
             print(f"Error: {e}")
             return pd.DataFrame()
 
-
     def _sort_folders_and_files(self, arr) -> list:
 
         # sep folders from files
@@ -112,7 +111,6 @@ class Browser:
         path = self.df.iloc[row]["Path"]
         return path
 
-
     def _update_grid(self, ev):
         path = Path(self.get_selected_path(ev['row']))
         self.path_textbox.value = path.as_posix()
@@ -138,7 +136,6 @@ class Browser:
             self.datagrid
         ])
         return widget
-
 
     def textbox_navigate_callback(self, change):
         self.df = self._create_file_dataframe(change.value)
