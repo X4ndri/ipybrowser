@@ -15,9 +15,10 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',  # Minimum Python version required
-    install_requires=[        # List your dependencies here
-        'numpy',              # Example dependency
+    python_requires='>=3.6', 
+    install_requires=[
+        'numpy',
+        'pandas',
         'requests',
         'ipython',
         'jupyter',
