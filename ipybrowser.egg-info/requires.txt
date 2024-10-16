@@ -1,0 +1,7 @@
+numpy
+pandas
+requests
+ipython
+jupyter
+ipywidgets
+jupyterlab-widgets

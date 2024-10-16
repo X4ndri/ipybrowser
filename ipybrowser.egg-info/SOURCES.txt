@@ -1,0 +1,9 @@
+README.md
+setup.py
+ipybrowser/__init__.py
+ipybrowser/browser.py
+ipybrowser.egg-info/PKG-INFO
+ipybrowser.egg-info/SOURCES.txt
+ipybrowser.egg-info/dependency_links.txt
+ipybrowser.egg-info/requires.txt
+ipybrowser.egg-info/top_level.txt

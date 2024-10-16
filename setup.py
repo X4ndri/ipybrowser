@@ -4,7 +4,7 @@ setup(
     name='ipybrowser',
     version='0.0.1',
     author='Ahmad Abdal Qader',
-    author_email='aqader3@gatech.edu',
+    author_email='anonyIDmous@protonmail.com',
     description='A file browser for interactive python environments',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown', 
@@ -15,9 +15,10 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.6',  # Minimum Python version required
-    install_requires=[        # List your dependencies here
-        'numpy',              # Example dependency
+    python_requires='>=3.6',
+    install_requires=[
+        'numpy',
+        'pandas',
         'requests',
         'ipython',
         'jupyter',
