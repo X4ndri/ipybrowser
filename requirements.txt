@@ -1,0 +1,6 @@
+ipython
+jupyter
+ipywidgets
+jupyterlab-widgets 
+ipydatagrid==1.2.0
+typing
