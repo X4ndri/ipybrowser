@@ -39,7 +39,7 @@ selected = browser.current_path()
 print(f'Selected file path: {selected}')
 ```
 
-If you use `Jupyter Lab` as opposed to `Jupyter Notebook`, we also support `sidecar`, meaning that you can expand or minimize the browser widget wherever you are in your code, never having to scroll to the widget:
+If you use `Jupyter Lab` as opposed to `Jupyter Notebook`, ipybrowser also supports `sidecar`, meaning that you can expand or minimize the browser widget wherever you are in your code, never having to scroll to the widget:
 ```python
 browser.show(sidecar=True)
 ```
