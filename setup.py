@@ -22,7 +22,9 @@ setup(
         'requests',
         'ipython',
         'jupyter',
+        'sidecar',
         'ipywidgets',
+        'ipydatagrid',
         'jupyterlab-widgets'
 
     ]

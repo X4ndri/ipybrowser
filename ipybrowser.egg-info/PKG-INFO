@@ -10,5 +10,13 @@ Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: ipython
+Requires-Dist: jupyter
+Requires-Dist: ipywidgets
+Requires-Dist: ipydatagrid
+Requires-Dist: jupyterlab-widgets
 
 # ipybrowser

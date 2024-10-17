@@ -4,4 +4,5 @@ requests
 ipython
 jupyter
 ipywidgets
+ipydatagrid
 jupyterlab-widgets

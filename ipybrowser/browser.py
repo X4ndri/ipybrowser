@@ -21,6 +21,7 @@ class Browser:
         self.select_button = widgets.Button(description="Select")
         self.back_button.on_click(self._go_back)
         if parent_path is not None:
+            parent_path = self.get_absolute_path(parent_path)
             self.current_path = Path(parent_path)
         else:
             self.current_path = Path.cwd()
@@ -102,10 +103,17 @@ class Browser:
         return index   
 
     def _go_back(self, ev) -> None:
-        self.current_path = self.current_path.parent
-        self.path_textbox.value = self.current_path.as_posix()
-        self.df = self._create_file_dataframe(self.current_path)
-        self.datagrid.data = self.df
+        selpath = self.current_path
+        if selpath.is_dir():
+            self.current_path = self.current_path.parent
+            self.path_textbox.value = self.current_path.as_posix()
+            self.df = self._create_file_dataframe(self.current_path)
+            self.datagrid.data = self.df
+        else:
+            self.current_path = self.current_path.parent.parent
+            self.path_textbox.value = self.current_path.as_posix()
+            self.df = self._create_file_dataframe(self.current_path)
+            self.datagrid.data = self.df
         
     def get_selected_path(self, row):
         path = self.df.iloc[row]["Path"]
@@ -118,6 +126,8 @@ class Browser:
             self.current_path = path
             self.df = self._create_file_dataframe(path)
             self.datagrid.data=self.df
+        else:
+            self.current_path = path
 
     def hide(self):
         self.datagrid.layout.visibility = 'hidden'
@@ -135,8 +145,26 @@ class Browser:
             widgets.HBox([self.path_textbox, self.back_button]),
             self.datagrid
         ])
-        return widget
+        if sidecar:
+            from sidecar import Sidecar
+            sc = Sidecar(title='browser')
+            with sc:
+                display(widget)
+                return
+
+        else:
+            return widget
 
     def textbox_navigate_callback(self, change):
-        self.df = self._create_file_dataframe(change.value)
-        self.datagrid.data=self.df
+        try:
+            self.df = self._create_file_dataframe(change.value)
+            self.datagrid.data=self.df
+            self.current_path = change.value
+        except:
+            warn("error while navigating")
+    def get_absolute_path(self, shorthand_path):
+        # Expand the ~ to the full home directory path
+        expanded_path = os.path.expanduser(shorthand_path)
+        # Get the absolute path
+        absolute_path = os.path.abspath(expanded_path)
+        return absolute_path
